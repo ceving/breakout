@@ -26,4 +26,4 @@ object {
   }
 }
 
-light_source { <0, 5, 0> color White}
+light_source { <-2, 4, 4> color White}
