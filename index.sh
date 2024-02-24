@@ -23,9 +23,9 @@ $(images 4 Box-*.png)
     <h2>Cracked Boxes</h2>
 $(images 4 Cracked-*.png)
     <h2>Player</h2>
-$(images 4 Player.png)
+$(images 4 Player*.png)
     <h2>Ball</h2>
-$(images 4 Ball.png)
+$(images 4 Ball*.png)
   </body>
 </html>
 EOF

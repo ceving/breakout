@@ -4,7 +4,9 @@ colors:=Green Blue Red Cyan Yellow Magenta Silver
 
 boxes:=$(patsubst %,Box-%.png,$(colors))
 cracked:=$(patsubst %,Cracked-%.png,$(colors))
-sprites:=$(boxes) $(cracked) Player.png Ball.png
+spherical:=Player.png Ball.png
+boundingbox:=$(patsubst %.png,%-BoundingBox.png,$(spherical))
+sprites:=$(boxes) $(cracked) $(spherical) $(boundingbox)
 
 all: index.html
 
@@ -14,7 +16,7 @@ display:
 clean:
 	rm *.png sprites.html
 
-%.png: %.pov Makefile
+%.png: %.pov
 	$(povray) -D +F +O$@ +I$<
 	mogrify -trim $@
 
@@ -23,6 +25,9 @@ Cracked-%.pov:: Cracked.pov
 
 Box-%.pov:: Box.pov
 	sed "s/Silver/$*/" $< > $@
+
+%-BoundingBox.png: %.png
+	 convert $< -shave 1x1 -bordercolor black -compose Copy -border 1 $@
 
 index.html: index.sh $(sprites)
 	./$<
