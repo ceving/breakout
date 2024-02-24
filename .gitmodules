@@ -1,0 +1,3 @@
+[submodule "POV-RoundEdge"]
+	path = POV-RoundEdge
+	url = git@github.com:CousinRicky/POV-RoundEdge.git

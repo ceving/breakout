@@ -1,5 +1,5 @@
 SHELL:=/bin/bash
-povray:=povray +A +UA +W800 +H600
+povray:=povray +A +UA +W800 +H600 +L$(abspath ./POV-RoundEdge)
 colors:=Green Blue Red Cyan Yellow Magenta Silver
 
 boxes:=$(patsubst %,Box-%.png,$(colors))
